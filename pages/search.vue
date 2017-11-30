@@ -8,11 +8,13 @@
         id="book-search" 
         v-model="searchInput"></v-text-field>
       </form>
-      <div class="container" v-for="result in results" :key="result.title">
-        <div class="flex xs12">
-          <book-card v-bind="result"></book-card>
-        </div>
-      </div>
+      <v-container grid-list-lg>
+        <v-layout row wrap>
+          <v-flex xs12 md6 v-for="result in results" :key="result.title">
+            <book-card v-bind="result"></book-card>
+          </v-flex>
+        </v-layout>
+      </v-container>
     </v-flex>
   </v-layout>
 </template>
