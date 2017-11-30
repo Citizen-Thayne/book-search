@@ -1,6 +1,6 @@
 # vue-books
 
-> Nuxt.js + Vuetify.js project
+> Nuxt + Vuetify app to search for books using Google Books API Edit
 
 ## Build Setup
 
