@@ -5,8 +5,8 @@
         <v-layout row>
           <v-flex xs7>
             <div>
-              <div class="headline">{{title | trunc(32)}}</div>
-              <div>{{authors}}</div>
+              <div class="title">{{title | trunc(32)}}</div>
+              <div class="authors">{{authors}}</div>
             </div>
           </v-flex>
           <v-flex xs5>
@@ -30,9 +30,3 @@ export default {
   }
 }
 </script>
-
-<style>
-.book-card {
-  width: 450px;
-}
-</style>
