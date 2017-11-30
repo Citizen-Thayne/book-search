@@ -1,5 +1,4 @@
 
-console.log(`Env: ${process.env.NODE_ENV}`)
 module.exports = {
   /*
   ** Headers of the page
