@@ -87,8 +87,7 @@
         drawer: true,
         fixed: false,
         items: [
-          { icon: 'apps', title: 'Welcome', to: '/' },
-          { icon: 'bubble_chart', title: 'Inspire', to: '/inspire' }
+          { icon: 'search', title: 'Search Books', to: '/' }
         ],
         miniVariant: false,
         right: true,
