@@ -6,12 +6,16 @@
         name="search" 
         label="Search Books" 
         id="book-search" 
-        v-model="searchInput"></v-text-field>
+        v-model="query"></v-text-field>
       </form>
-      <v-container grid-list-lg>
+      <v-container align-center id="status">
+        <v-alert color="error" v-if="error">{{error}}</v-alert>
+        <v-progress-circular  v-if="isSearching" indeterminate color="primary"></v-progress-circular>
+      </v-container>
+      <v-container grid-list-lg v-if="!isSearching && books">
         <v-layout row wrap>
-          <v-flex xs12 md6 v-for="result in results" :key="result.title">
-            <book-card v-bind="result"></book-card>
+          <v-flex xs12 md6 v-for="book in books" :key="book.title">
+            <book-card v-bind="book"></book-card>
           </v-flex>
         </v-layout>
       </v-container>
@@ -20,30 +24,26 @@
 </template>
 
 <script>
-import books from '~/api/books'
 import BookCard from '~/components/BookCard'
+import { mapActions, mapGetters, mapState } from 'vuex'
 
 export default {
   components: {
     BookCard
   },
-  data: function () {
-    return {
-      searchInput: '',
-      results: []
-    }
-  },
   methods: {
-    async search () {
-      var searchResults = await books.search(this.searchInput)
-      this.results = searchResults.items.map(item => {
-        const volumeInfo = item.volumeInfo
-        return {
-          title: volumeInfo.title,
-          authors: volumeInfo.authors.join(', '),
-          thumbnailUrl: volumeInfo.imageLinks.thumbnail
-        }
-      })
+    ...mapActions('search', ['search'])
+  },
+  computed: {
+    ...mapGetters('search', ['books']),
+    ...mapState('search', ['isSearching', 'error']),
+    query: {
+      get () {
+        return this.$store.state.search.query
+      },
+      set (newValue) {
+        this.$store.commit('search/updateQuery', newValue)
+      }
     }
   }
 }
