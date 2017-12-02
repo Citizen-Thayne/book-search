@@ -6,7 +6,8 @@
         name="search" 
         label="Search Books" 
         id="book-search" 
-        v-model="query"></v-text-field>
+        v-model="query"
+        autocomplete="off"></v-text-field>
       </form>
       <v-container align-center id="status">
         <v-alert color="error" v-if="error">{{error}}</v-alert>
