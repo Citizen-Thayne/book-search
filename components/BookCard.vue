@@ -1,11 +1,11 @@
 <template>
   <div class="book-card">
-    <v-card color="blue-grey darken-2" class="white--text">
+    <v-card color="blue lighten-1" class="white--text">
       <v-container>
         <v-layout row>
           <v-flex xs7>
             <div>
-              <div class="title">{{title | trunc(32)}}</div>
+              <div class="">{{title | trunc(64)}}</div>
               <div class="authors">{{authors}}</div>
             </div>
           </v-flex>
