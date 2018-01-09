@@ -42,7 +42,7 @@
   export default {
     data () {
       return {
-        drawer: true,
+        drawer: false,
         items: [
           { icon: 'search', title: 'Search', to: '/' },
           { icon: 'book', title: 'Collections', to: '/collections' }
