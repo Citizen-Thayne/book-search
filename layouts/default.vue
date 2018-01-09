@@ -22,12 +22,12 @@
         </v-list-tile>
       </v-list>
     </v-navigation-drawer>
-    <v-toolbar fixed app color="blue">
+    <v-toolbar fixed app color="blue accent-2">
       <v-toolbar-side-icon @click="drawer = !drawer"></v-toolbar-side-icon>       
       <v-toolbar-title v-text="title"></v-toolbar-title>
       <v-spacer></v-spacer>
     </v-toolbar>
-    <v-content>
+    <v-content class="grey lighten-4">
       <v-container>
         <nuxt />
       </v-container>

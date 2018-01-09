@@ -13,24 +13,18 @@
         <v-alert color="error" v-if="error">{{error}}</v-alert>
         <v-progress-circular  v-if="isSearching" indeterminate color="primary"></v-progress-circular>
       </v-container>
-      <v-container grid-list-lg v-if="!isSearching && books">
-        <v-layout row wrap>
-          <v-flex xs12 md6 v-for="book in books" :key="book.title">
-            <book-card v-bind="book"></book-card>
-          </v-flex>
-        </v-layout>
-      </v-container>
+      <book-list v-if="!isSearching && books" :books="books" />
     </v-flex>
   </v-layout>
 </template>
 
 <script>
-import BookCard from '~/components/BookCard'
+import BookList from '~/components/BookList'
 import { mapActions, mapGetters, mapState } from 'vuex'
 
 export default {
   components: {
-    BookCard
+    BookList
   },
   methods: {
     ...mapActions('search', ['search'])

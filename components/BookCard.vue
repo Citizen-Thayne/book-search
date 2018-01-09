@@ -1,16 +1,14 @@
 <template>
   <div class="book-card">
-    <v-card color="blue lighten-1" class="white--text">
+    <v-card raised>
       <v-container>
         <v-layout row>
-          <v-flex xs7>
+          <img :src="thumbnailUrl" />
+          <v-flex>
             <div>
-              <div class="">{{title | trunc(64)}}</div>
+              <div class="title black--text">{{title | trunc(64)}}</div>
               <div class="authors">{{authors}}</div>
             </div>
-          </v-flex>
-          <v-flex xs5>
-            <v-card-media :src="thumbnailUrl" height="100px" contain></v-card-media>
           </v-flex>
         </v-layout>
       </v-container>
