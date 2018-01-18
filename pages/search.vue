@@ -2,18 +2,15 @@
   <v-layout>
     <v-flex text-xs-center>
       <form @submit.prevent="search">
-        <v-text-field 
-        name="search" 
-        label="Search Books" 
-        id="book-search" 
-        v-model="query"
-        autocomplete="off"></v-text-field>
+        <v-text-field name="search" label="Search Books" id="book-search" v-model="query" autocomplete="off"></v-text-field>
       </form>
       <v-container align-center id="status">
         <v-alert color="error" v-if="error">{{error}}</v-alert>
-        <v-progress-circular  v-if="isSearching" indeterminate color="primary"></v-progress-circular>
+        <v-progress-circular v-if="isSearching" indeterminate color="primary"></v-progress-circular>
       </v-container>
-      <book-list v-if="!isSearching && books" :books="books" />
+      <v-card>
+        <book-list v-if="!isSearching && books" :books="books" />
+      </v-card>
     </v-flex>
   </v-layout>
 </template>

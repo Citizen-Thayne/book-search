@@ -1,16 +1,14 @@
 <template>
   <div class="book-card">
     <v-card raised>
-      <v-container>
-        <v-layout row>
-          <img :src="thumbnailUrl" />
-          <v-flex>
-            <div>
-              <div class="title black--text">{{title | trunc(64)}}</div>
-              <div class="authors">{{authors}}</div>
-            </div>
-          </v-flex>
-        </v-layout>
+      <v-container class="book-card--container">
+        <v-flex xs3>
+          <v-card-media :src="thumbnailUrl" :contain="true" height="100px" />
+        </v-flex>
+        <v-flex xs9>
+          <div class="title black--text">{{title | trunc(64)}}</div>
+          <div class="authors">{{authors}}</div>
+        </v-flex>
       </v-container>
     </v-card>
   </div>
@@ -28,3 +26,10 @@ export default {
   }
 }
 </script>
+
+<style>
+.book-card--container {
+  padding: 0;
+}
+</style>
+
