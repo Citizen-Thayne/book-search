@@ -13,6 +13,8 @@ module.exports = {
     'jest'
   ],
   // add your custom rules here
-  rules: {},
+  rules: {
+    "no-debugger": ["warn"]
+  },
   globals: {}
 }

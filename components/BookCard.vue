@@ -1,5 +1,5 @@
 <template>
-  <div class="book-card">
+  <div class="book-card" @click="click">
     <v-card raised>
       <v-container class="book-card--container">
         <v-flex xs3>
@@ -23,6 +23,11 @@ export default {
   },
   filters: {
     trunc: (str, maxSize) => str.length > maxSize ? str.slice(0, maxSize).trim() + '...' : str
+  },
+  methods: {
+    click () {
+      debugger
+    }
   }
 }
 </script>

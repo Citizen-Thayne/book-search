@@ -1,0 +1,4 @@
+export const SET_COLLECTIONS = 'SET_COLLECTIONS'
+export const SET_IS_LOADING = 'SET_IS_LOADING'
+export const SET_LOAD_COMPLETE = 'SET_LOAD_COMPLETE'
+export const SET_BOOKS = 'SET_BOOKS'

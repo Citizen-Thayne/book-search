@@ -1,27 +1,38 @@
-import books from '~/api/books'
+import * as books from '~/api/books'
 import _ from 'lodash'
 
 export const state = () => ({
   query: '',
   isSearching: false,
   searchComplete: false,
-  results: {},
+  results: {
+    items: []
+  },
   error: null
 })
 
 export const getters = {
-  books ({ results }) {
+  books ({
+    results
+  }) {
     if (!results.items) {
       return []
     }
     return results.items.map((item) => ({
       title: _.get(item, 'volumeInfo.title', '(No Title)'),
       authors: _.get(item, 'volumeInfo.authors', ['(No Authors)']).join(', '),
-      thumbnailUrl: _.get(item, 'volumeInfo.imageLinks.thumbnail')
+      thumbnailUrl: _.get(item, 'volumeInfo.imageLinks.thumbnail'),
+      id: item.id,
+      etag: item.etag
     }))
+  },
+  volumeIds: ({results}) => {
+    if (!results.items) {
+      return []
+    }
+    return results.items.map((item) => item.id)
   }
 }
-
 export const mutations = {
   updateQuery (state, query) {
     state.query = query
@@ -41,7 +52,10 @@ export const mutations = {
 }
 
 export const actions = {
-  async search ({ state, commit }) {
+  async search ({
+    state,
+    commit
+  }) {
     commit('setSearching', true)
     commit('setResults', [])
     let results
