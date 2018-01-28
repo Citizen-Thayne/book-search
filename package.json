@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Nuxt.js + Vuetify.js project",
   "author": "",
-  "private": true,
+  "private": false,
   "scripts": {
     "dev": "cross-env NODE_ENV=dev nuxt",
     "build": "nuxt build",
