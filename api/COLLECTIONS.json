@@ -1,16 +1,20 @@
 {
   "collections": {
-    "0": [
-      "DU0LDAAAQBAJ",
-      "5MQFrgEACAAJ",
-      "PJhMAAAACAAJ",
-      "iO5pApw2JycC",
-      "39iYWTb6n6cC",
-      "-__ICQemqaEC",
-      "szF_pLGmJTQC",
-      "7HgwCgAAQBAJ",
-      "LiWrXUHgnL8C",
-      "YvQ_AhkJpBUC"
-    ]
+    "1": {
+      "id": "1",
+      "title": "My Collection",
+      "books": [
+        "DU0LDAAAQBAJ",
+        "5MQFrgEACAAJ",
+        "PJhMAAAACAAJ",
+        "iO5pApw2JycC",
+        "39iYWTb6n6cC",
+        "-__ICQemqaEC",
+        "szF_pLGmJTQC",
+        "7HgwCgAAQBAJ",
+        "LiWrXUHgnL8C",
+        "YvQ_AhkJpBUC"
+      ]
+    }
   }
 }

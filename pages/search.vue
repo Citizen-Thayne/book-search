@@ -8,22 +8,7 @@
         <v-alert color="error" v-if="error">{{error}}</v-alert>
         <v-progress-circular v-if="isSearching" indeterminate color="primary"></v-progress-circular>
       </v-container>
-      <v-card v-if="!isSearching && books">
-        <v-list>
-          <template v-for="book in books">
-            <v-list-tile avatar :key="book.etag">
-              <v-list-tile-avatar>
-                <img v-bind:src="book.thumbnailUrl">
-              </v-list-tile-avatar>
-              <v-list-tile-content>
-                <v-list-tile-title v-html="book.title"></v-list-tile-title>
-                <v-list-tile-sub-title v-html="book.subtitle"></v-list-tile-sub-title>
-              </v-list-tile-content>
-            </v-list-tile>
-          </template>
-        </v-list>
-        <!-- <book-list v-if="!isSearching && books" :books="books" /> -->
-      </v-card>
+      <book-list v-if="!isSearching && books.length" :books="books" title="results" />      
     </v-flex>
   </v-layout>
 </template>
@@ -31,7 +16,10 @@
 <script>
 import { mapActions, mapGetters, mapState, mapMutations } from 'vuex'
 
+import BookList from '~/components/BookList'
+
 export default {
+  components: { BookList },
   asyncData ({ store, route }) {
     let q = route.query.q
     if (q) {

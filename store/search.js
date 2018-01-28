@@ -1,5 +1,4 @@
 import * as books from '~/api/books'
-import _ from 'lodash'
 
 export const state = () => ({
   query: '',
@@ -12,20 +11,7 @@ export const state = () => ({
 })
 
 export const getters = {
-  books ({
-    results
-  }) {
-    if (!results.items) {
-      return []
-    }
-    return results.items.map((item) => ({
-      title: _.get(item, 'volumeInfo.title', '(No Title)'),
-      authors: _.get(item, 'volumeInfo.authors', ['(No Authors)']).join(', '),
-      thumbnailUrl: _.get(item, 'volumeInfo.imageLinks.thumbnail'),
-      id: item.id,
-      etag: item.etag
-    }))
-  },
+  books: ({results}) => results.items,
   volumeIds: ({results}) => {
     if (!results.items) {
       return []
